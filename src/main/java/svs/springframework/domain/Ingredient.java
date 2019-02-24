@@ -1,6 +1,7 @@
 package svs.springframework.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  * @version 23/02/19
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipe"}) // prevent StackOverflowError
 @Entity
 public class Ingredient {
 
