@@ -1,11 +1,14 @@
 package svs.springframework.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
  * @author BAD
  * @version 23/02/19
  */
+@Data
 @Entity
 public class Notes {
 
@@ -18,33 +21,6 @@ public class Notes {
 
     @Lob
     private String recipeNotes;
-
-    public Notes() {
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public Recipe getRecipe() {
-        return this.recipe;
-    }
-
-    public String getRecipeNotes() {
-        return this.recipeNotes;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public void setRecipeNotes(String recipeNotes) {
-        this.recipeNotes = recipeNotes;
-    }
 
     public boolean equals(final Object o) {
         if (o == this) return true;

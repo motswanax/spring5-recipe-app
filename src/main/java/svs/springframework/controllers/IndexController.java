@@ -1,5 +1,6 @@
 package svs.springframework.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import svs.springframework.services.RecipeService;
  * @author BAD
  * @version 23/02/19
  */
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -20,6 +22,7 @@ public class IndexController {
 
     @RequestMapping({"", "/", "/index"}) // call method when one of these URL values is called.
     public String getIndexPage(Model model) {
+        log.debug("Rendering the index page.");
 
         model.addAttribute("recipes", recipeService.getRecipes());
         return "index";
