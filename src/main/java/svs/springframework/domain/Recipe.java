@@ -121,6 +121,7 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
     }
 
     public Set<Ingredient> getIngredients() {
@@ -147,6 +148,12 @@ public class Recipe {
         this.categories = categories;
     }
 
+    /**
+     * This adds an ingredient to the recipe and builds the bidirectional relationship between Recipe and Ingredient.
+     * This prevents passing of the Recipe to the constructor.
+     * @param ingredient - the ingredient
+     * @return
+     */
     public Recipe addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
         this.ingredients.add(ingredient);
