@@ -6,6 +6,7 @@ import svs.springframework.domain.Recipe;
 import svs.springframework.repositories.RecipeRepository;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -28,5 +29,20 @@ public class RecipeServiceImpl implements RecipeService {
 
         recipeRepository.findAll().iterator().forEachRemaining(recipeSet::add);
         return recipeSet;
+    }
+
+    @Override
+    public Recipe findById(Long l) {
+
+        // Optional from spring data (CrudRepository via RecipeResository)
+        Optional<Recipe> recipeOptional = recipeRepository.findById(l);
+
+        // check to see if we get a value back
+        if (!recipeOptional.isPresent()) {
+            throw new RuntimeException("Recipe Not Found!");
+        }
+
+        // this goes to the RecipeController's showById
+        return recipeOptional.get();
     }
 }
