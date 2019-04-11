@@ -54,6 +54,17 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeOptional.get();
     }
 
+    /**
+     * Finds a recipe with the given ID in the database, converts it to a RecipeCommand and returns it.
+     * @param l - the recipe Id
+     * @return - RecipeCommand object
+     */
+    @Override
+    @Transactional // because we're converting outside the scope
+    public RecipeCommand findCommandById(Long l) {
+        return recipeToRecipeCommand.convert(findById(l));
+    }
+
     @Override
     @Transactional
     public RecipeCommand saveRecipeCommand(RecipeCommand command) {
