@@ -18,17 +18,18 @@
 </head>
 <body>
 <!--/*@thymesVar id="recipe" type="svs.springframework.domain.Recipe"*/-->
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
+<div class="container-fluid h-100" style="margin-top: 20px">
+    <div class="row h-100 justify-content-center align-items-center">
         <div class="col-md-6 col-md-offset-3">
             <form th:object="${recipe}" th:action="@{/recipe/}" method="post">
-                <input type="hidden" th:field="*{id}"/> <!-- use forms for creation and update with id, hidden not to expose the id-->
-                <div class="pannel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h1 class="panel-title">Edit Recipe Information</h1>
+                <input type="hidden" th:field="*{id}"/>
+                <!-- use forms for creation and update with id, hidden not to expose the id-->
+                <div class="row mb-3">
+                    <div class="card w-100">
+                        <div class="card-header bg-danger text-white">
+                            <h1 class="card-title">Edit Recipe Information</h1>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-3 form-group">
                                     <label>Recipe Description:</label>
@@ -88,18 +89,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="card w-100">
+                        <div class="card-header bg-danger text-white">
                             <div class="row">
                                 <div class="col-md-11 ">
-                                    <h1 class="panel-title">Ingredients</h1>
+                                    <h1 class="card-title">Ingredients</h1>
                                 </div>
                                 <div class="col-md-1">
-                                    <a class="btn btn-default" href="#" role="button">Edit</a>
+                                    <a class="btn btn-success" href="#" role="button">Edit</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul>
@@ -115,9 +119,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h1 class="panel-title">Directions</h1>
+                </div>
+                <div class="row mb-3">
+                    <div class="card w-100">
+                        <div class="card-header bg-danger text-white">
+                            <h1 class="card-title">Directions</h1>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -126,11 +132,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h1 class="panel-title">Notes</h1>
+                </div>
+                <div class="row mb-3">
+                    <div class="card w-100">
+                        <div class="card-header bg-danger text-white">
+                            <h1 class="card-title">Notes</h1>
                         </div>
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
@@ -138,8 +146,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+
             </form>
         </div>
     </div>

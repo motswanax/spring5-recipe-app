@@ -18,45 +18,50 @@
 <body>
     <!--/*@thymesVar id="recipes" type="java.util.List"*/-->
     <!--/*@thymesVar id="recipe" type="svs.springframework.domain.Recipe"*/-->
-    <div class="container-fluid" style="margin-top: 20px">
-        <div class="row">
+    <div class="container-fluid h-100" style="margin-top: 20px">
+        <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">My Recipes: Delicious... haha... oops!</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
-                            <table class="table table-hover">
-                                <thead class="thead-inverse">
+                <div class="row mb-3">
+                    <div class="card mw-100 w-100">
+                        <div class="card-header bg-primary text-white">
+                            <h1 class="card-title">My Recipes: Delicious Delights</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                                <table class="table table-hover">
+                                    <thead class="thead-inverse">
                                     <tr>
                                         <th>ID</th>
                                         <th>Description</th>
                                         <th>View</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
                                     </tr>
-                                </thead>
-                                <tr th:remove="all">
-                                    <td>123</td>
-                                    <td>Tasty Goodness 1</td>
-                                    <td><a href="#">View</a></td>
-                                </tr>
-                                <tr th:remove="all">
-                                    <td>1234</td>
-                                    <td>Tasty Goodness 2</td>
-                                    <td><a href="#">View</a></td>
-                                </tr>
-                                <tr th:each="recipe : ${recipes}">
-                                    <!--/*@thymesVar id="recipe" type="svs.springframework.domain.Recipe"*/-->
-                                    <td th:text="${recipe.id}">234</td>
-                                    <td th:text="${recipe.description}">Tasty Goodness 3</td>
-                                    <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a> </td>
-                                    <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
-                                    <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a></td>
-                                </tr>
-                            </table>
+                                    </thead>
+                                    <tr th:remove="all">
+                                        <td>123</td>
+                                        <td>Tasty Goodness 1</td>
+                                        <td><a href="#">View</a></td>
+                                    </tr>
+                                    <tr th:remove="all">
+                                        <td>1234</td>
+                                        <td>Tasty Goodness 2</td>
+                                        <td><a href="#">View</a></td>
+                                    </tr>
+                                    <tr th:each="recipe : ${recipes}">
+                                        <!--/*@thymesVar id="recipe" type="svs.springframework.domain.Recipe"*/-->
+                                        <td th:text="${recipe.id}">234</td>
+                                        <td th:text="${recipe.description}">Tasty Goodness 3</td>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a> </td>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
