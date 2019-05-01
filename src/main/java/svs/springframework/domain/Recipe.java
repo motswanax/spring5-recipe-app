@@ -1,6 +1,7 @@
 package svs.springframework.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,7 +11,8 @@ import java.util.Set;
  * @author BAD
  * @version 23/02/19
  */
-@Data // refactoring with project lombok
+@Getter
+@Setter // refactoring with project lombok
 @Entity
 public class Recipe {
 

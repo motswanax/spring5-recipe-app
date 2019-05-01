@@ -1,7 +1,8 @@
 package svs.springframework.domain;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -9,7 +10,8 @@ import javax.persistence.*;
  * @author BAD
  * @version 23/02/19
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(exclude = {"recipe"}) // override this annotation to prevent StackOverflowError
 @Entity
 public class Notes {

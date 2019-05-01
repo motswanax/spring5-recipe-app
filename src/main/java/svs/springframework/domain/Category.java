@@ -1,7 +1,8 @@
 package svs.springframework.domain;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +11,8 @@ import java.util.Set;
  * @author BAD
  * @version 24/02/19
  */
-@Data // project lombok refactoring
+@Getter
+@Setter // project lombok refactoring
 @EqualsAndHashCode(exclude = {"recipes"}) // override this annotation to prevent StackOverflowError
 @Entity
 public class Category {
