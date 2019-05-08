@@ -28,8 +28,7 @@ public class RecipeController {
      * @param model - the model object
      * @return - the recipe path
      */
-    @GetMapping
-    @RequestMapping("/recipe/{id}/show") // pick the id value from the URL
+    @GetMapping("/recipe/{id}/show") // pick the id value from the URL
     public String showById(@PathVariable String id, Model model){
 
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)));
@@ -42,16 +41,14 @@ public class RecipeController {
      * @param model - the model
      * @return - the recipe form
      */
-    @GetMapping
-    @RequestMapping("recipe/new")
+    @GetMapping("recipe/new")
     public String newRecipe(Model model){
         model.addAttribute("recipe", new RecipeCommand());
 
         return "recipe/recipeform";
     }
 
-    @GetMapping
-    @RequestMapping("/recipe/{id}/update")
+    @GetMapping("/recipe/{id}/update")
     public String updateRecipe(@PathVariable String id, Model model) {
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
         return "recipe/recipeform";
@@ -76,8 +73,7 @@ public class RecipeController {
      * @param id - the id
      * @return - the home view
      */
-    @GetMapping
-    @RequestMapping("recipe/{id}/delete")
+    @GetMapping("recipe/{id}/delete")
     public String deleteById(@PathVariable String id){
 
         log.debug("Deleting id: " + id);

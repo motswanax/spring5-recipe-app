@@ -5,5 +5,5 @@ package svs.springframework.domain;
  * @version 23/02/19
  */
 public enum Difficulty {
-    EASY, MODERATE, HARD
+    EASY, MODERATE, KIND_OF_HARD, HARD
 }
