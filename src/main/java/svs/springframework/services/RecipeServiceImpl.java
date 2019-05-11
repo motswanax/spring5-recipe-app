@@ -7,6 +7,7 @@ import svs.springframework.commands.RecipeCommand;
 import svs.springframework.converters.RecipeCommandToRecipe;
 import svs.springframework.converters.RecipeToRecipeCommand;
 import svs.springframework.domain.Recipe;
+import svs.springframework.exceptions.NotFoundException;
 import svs.springframework.repositories.RecipeRepository;
 
 import java.util.HashSet;
@@ -47,7 +48,8 @@ public class RecipeServiceImpl implements RecipeService {
 
         // check to see if we get a value back
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+//            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe not found");
         }
 
         // this goes to the RecipeController's showById
